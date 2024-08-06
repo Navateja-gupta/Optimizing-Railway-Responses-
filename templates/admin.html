@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Railway System</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Tooplate" />
+    <!-- Bootstrap core CSS -->
+    <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="../static/assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="../static/assets/css/tooplate-style.css" />
+    <link rel="stylesheet" href="../static/assets/css/owl.css" />
+    <link rel="stylesheet" href="../static/assets/css/lightbox.css" />
+  </head>
+<!--
+Tooplate 2116 Blugoon
+https://www.tooplate.com/view/2116-blugoon
+-->
+  <body>
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu" style="width:auto">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <!-- <div class="image">
+              <a href="#"><img src="../assets/images/logo-image.jpg" alt="Blugoon by Tooplate" /></a>
+            </div> -->
+            <div class="author-content"><br><br>
+              <h5 style="color:snow;background-color: black;">Railway Feedback</h5>
+              <!-- <span>Railway Feedback</span> -->
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="/index">Home</a></li>
+                <li><a href="/admin">Admin</a></li>
+                <li><a href="/user">User</a></li>
+                <li><a href="/complaints">Complaints</a></li>
+                <li><a href="/analyst">Analyst</a></li>
+              </ul>
+            </nav>
+            <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div>
+            <!-- <div class="copyright-text">
+              <p>Copyright 2020 Blugoon<br>
+              Design: Tooplate</p>
+            </div> -->
+          </div>
+        </div>
+      </div>
+
+      <section class="section about-me" data-section="section1">
+        <div class="container">
+        <!-- <div class="top-header">
+        	<img src="../static/assets/images/1234.png"  />
+        </div> -->
+          <div class="section-heading">
+          
+            <center><h2>Railway Feedback Using Machine Learning</h2></center><br>
+            <!-- <div class="line-dec"></div> -->
+            <!-- <span>We welcome your feedback and suggestion about the portal to help us further and serve you better. You may use the Speak Out facility to send us your detailed opinion or fill up the form below to write to us with your input and queries.</span> -->
+          </div>
+          <div class="right-image-post">
+            <div class="row">
+                <center></center><br/>
+               
+                  <div style="margin-left: 250px;">
+                    <h6 style="margin-left: 100px;"><font color="black" size="4" > Admin Login</font></h6>
+                    <form name="myform" action="/adminlogact" method="post">
+                    <table border="0" >
+                    <tr><td><font color="black"> User Name</td><td><input type="text" name="username" required=""  style="border-radius: 2cm;"></td></tr>
+                    <tr><td><font color="black">Password</td><td><input type="password" name="password" required=""  style="border-radius: 2cm;"></td></tr>
+                
+                    <tr rowspan="2" align="center"><td><br><input type="submit" name="submit" value="Login" style="border-radius: 2cm;" /></td></tr>
+                    <tr></tr>      
+                    </table>
+                    </form>
+                    
+                  </div>
+            </div>
+          </div>
+      
+        </div>
+      </section>
+
+    
+   
+    </div>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/lightbox.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
+
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
+
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
+
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
+
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
+  </body>
+</html>
